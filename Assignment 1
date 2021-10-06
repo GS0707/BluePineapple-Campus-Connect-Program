@@ -1,1 +1,43 @@
+Question 1: Find the perfect numbers upto N.
+            Ex. N=100
+               Perfect numbers upto N are: 6,28.
+ 
+ Program (Python):
+ 
+ N=int(input("Enter the Number: "))
 
+print("Following are perfect numbers: ",end="")
+for i in range(1,N+1):
+    Sum=0
+    for j in range(1,i):
+        if i % j == 0:
+            Sum+=j
+    if Sum  == i:
+        print(i,end=" ")       
+-----------------------------------------------------
+
+Question 2: Find total occurences of each digits(0-9) using function
+            Ex. N=1122334
+                Occurances: 1:2,2:2,3:2,4:1
+
+Program (Python) Using HashTable:
+
+def findOccur(N):
+    dic={}
+
+    while N != 0:
+        try:
+            dic[int(N%10)]+=1
+        except:
+            dic[int(N%10)]=1
+        N=int(N/10)
+    
+    print("Occurrence of each digit: ")    
+    for i in dic:
+        print(i,':',dic[i])
+
+if __name__ == '__main__':          
+    N=int(input('Enter the Number: '))
+
+findOccur(N)
+----------------------------------------------------
